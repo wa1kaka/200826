@@ -38,6 +38,7 @@ export default {
   
   mounted(){
       this.$store.dispatch('getFloorsList')
+      this.$store.dispatch('getUserToken')
     //   this.$store.dispatch('getBannerList')
   },
   components:{     

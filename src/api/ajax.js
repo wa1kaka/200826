@@ -16,10 +16,16 @@ import store from '@/store'
 servece.interceptors.request.use((config)=>{
     
     // 2. 显示请求进度条
-    nprogress.start()   
+    nprogress.start()
+    //携带临时表示   
     let userTempId=store.state.user.userTempId
     if(userTempId){
         config.headers.userTempId=userTempId
+    }
+    //携带登陆后标识token
+    let token=store.state.user.token
+    if(token){
+        config.headers.token=token
     }
     return config
 })

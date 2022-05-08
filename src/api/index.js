@@ -1,5 +1,5 @@
 // import { method } from 'lodash'
-import { method } from 'lodash'
+import { result } from 'lodash'
 import ajax from './ajax'
 import mockAjax from './mockAjax'
 //首页三级分类
@@ -71,4 +71,43 @@ export const reqDeleteCart=(skuId)=>{
         method:'delete'
     })
 }
-
+//获取验证码
+export const reqGetCode=(phone)=>{
+    return ajax({
+        url:`/user/passport/sendCode/${phone}`
+    })
+}
+//用户注册
+///api/user/passport/register
+export const reqUserRegister=(userInfo)=>{
+    return ajax({
+        url:'/user/passport/register',
+        method:'post',
+        data:userInfo
+    })
+}
+export const reqUserLogin=(userInfo)=>{
+    return ajax({
+        url:'/user/passport/login',
+        method:'post',
+        data:userInfo
+    })
+}
+export const reqUserToken=()=>{
+    return ajax({
+        url:'/user/passport/auth/getUserInfo'
+    })
+}
+////api/order/auth/trade
+//获取交易页面信息/api/order/auth/trade
+export const reqTradeInfo=()=>{
+ return ajax({
+     url:'/order/auth/trade'
+ })
+}
+//获取地址信息
+export const reqUserAddress=()=>{
+    return ajax({
+        url:'user/userAddress/auth/findUserAddressList'
+    })
+   }
